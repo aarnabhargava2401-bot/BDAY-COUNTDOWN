@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prisha's Sweet 17 Countdown 🎀</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="floaty-layer"></div>
+
+<div class="garland" aria-hidden="true">
+  <svg viewBox="0 0 1200 64" preserveAspectRatio="none">
+    <path d="M0,10 Q150,60 300,10 T600,10 T900,10 T1200,10" fill="none" stroke="#d9c8ff" stroke-width="2"/>
+    <g>
+      <circle class="bulb b1" cx="60" cy="18" r="7" fill="#ff8fb3"/>
+      <circle class="bulb b2" cx="180" cy="42" r="7" fill="#ffe29a"/>
+      <circle class="bulb b3" cx="300" cy="14" r="7" fill="#a68cf0"/>
+      <circle class="bulb b4" cx="420" cy="42" r="7" fill="#ff8fb3"/>
+      <circle class="bulb b5" cx="540" cy="14" r="7" fill="#ffe29a"/>
+      <circle class="bulb b6" cx="660" cy="42" r="7" fill="#a68cf0"/>
+      <circle class="bulb b1" cx="780" cy="14" r="7" fill="#ff8fb3"/>
+      <circle class="bulb b2" cx="900" cy="42" r="7" fill="#ffe29a"/>
+      <circle class="bulb b3" cx="1020" cy="14" r="7" fill="#a68cf0"/>
+      <circle class="bulb b4" cx="1140" cy="42" r="7" fill="#ff8fb3"/>
+    </g>
+  </svg>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="active">🎀 Home</a>
+  <a href="message.html">💌 Message</a>
+  <a href="then-2013.html">🧸 2013</a>
+  <a href="now-2026.html">🌟 2026</a>
+</nav>
+
+<main class="page center">
+  <h1 class="title">Prisha's Sweet 17 Countdown</h1>
+  <p class="subtitle">the glow up is almost complete... 17 loading ✨</p>
+
+  <div class="hero-photo-wrap">
+    <img src="assets/garba-dance.jpeg" alt="Prisha twirling in a garba dress" class="hero-photo">
+  </div>
+
+  <div class="countdown" id="countdown">
+    <div class="box"><span class="num d-num">--</span><span class="lbl">days</span></div>
+    <div class="box"><span class="num h-num">--</span><span class="lbl">hours</span></div>
+    <div class="box"><span class="num m-num">--</span><span class="lbl">mins</span></div>
+    <div class="box"><span class="num s-num">--</span><span class="lbl">secs</span></div>
+  </div>
+
+  <div class="btn-row">
+    <a href="message.html" class="btn">read your message 💗</a>
+    <a href="now-2026.html" class="btn secondary">see 2026 glow up 🌟</a>
+  </div>
+
+  <div class="card">
+    <p style="margin:0; font-family:'Baloo 2',sans-serif; font-size:1.05rem;">
+      one more year, one more page in the story — and honestly? we're just getting started. 🎂
+    </p>
+  </div>
+
+  <p class="foot">made with lots of love, glitter, and 12 confetti clicks 💫</p>
+</main>
+
+<script src="script.js"></script>
+<script>
+  // ⚠️ Update the date below to Prisha's actual next birthday (YYYY-MM-DDTHH:mm:ss)
+  startCountdown('2026-09-06T00:00:00', 'countdown');
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #fff7fb;
+  --bg-soft: #fdeef6;
+  --pink: #ffc9e0;
+  --pink-deep: #ff8fb3;
+  --lav: #e4d9ff;
+  --lav-deep: #a68cf0;
+  --gold: #ffe29a;
+  --gold-deep: #f6c453;
+  --ink: #5b4b6e;
+  --ink-soft: #8a7aa3;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(139, 111, 209, 0.18);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 15% 10%, #ffe8f2 0%, transparent 45%),
+    radial-gradient(circle at 85% 0%, #eee3ff 0%, transparent 40%),
+    var(--bg);
+  font-family:'Quicksand', sans-serif;
+  color:var(--ink);
+  overflow-x:hidden;
+  position:relative;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+}
+
+/* ---------- Fairy light garland (signature element) ---------- */
+.garland{
+  position:sticky;
+  top:0;
+  left:0;
+  width:100%;
+  height:64px;
+  z-index:50;
+  pointer-events:none;
+}
+.garland svg{ width:100%; height:100%; display:block; }
+.bulb{ animation: twinkle 2.6s ease-in-out infinite; transform-origin:center; }
+.bulb.b2{ animation-delay:.4s; }
+.bulb.b3{ animation-delay:.8s; }
+.bulb.b4{ animation-delay:1.2s; }
+.bulb.b5{ animation-delay:1.6s; }
+.bulb.b6{ animation-delay:2s; }
+@keyframes twinkle{
+  0%,100%{ opacity:.55; filter:drop-shadow(0 0 2px currentColor); }
+  50%{ opacity:1; filter:drop-shadow(0 0 8px currentColor); }
+}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:relative;
+  z-index:40;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:6px 16px 22px;
+}
+.nav a{
+  font-family:'Baloo 2', sans-serif;
+  font-weight:600;
+  font-size:0.95rem;
+  text-decoration:none;
+  color:var(--lav-deep);
+  background:var(--white);
+  padding:9px 20px;
+  border-radius:999px;
+  box-shadow:0 4px 14px rgba(166,140,240,0.22);
+  border:2px solid transparent;
+  transition:transform .18s ease, border-color .18s ease, color .18s ease;
+}
+.nav a:hover{ transform:translateY(-3px) scale(1.05); border-color:var(--pink-deep); color:var(--pink-deep); }
+.nav a.active{ background:linear-gradient(135deg,var(--pink),var(--lav)); color:var(--ink); border-color:var(--gold-deep); }
+
+/* ---------- Layout helpers ---------- */
+.page{
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 24px 90px;
+  position:relative;
+  z-index:2;
+}
+.center{ text-align:center; }
+
+h1.title{
+  font-family:'Baloo 2', sans-serif;
+  font-weight:800;
+  font-size:clamp(2.1rem, 6vw, 3.4rem);
+  color:var(--pink-deep);
+  text-shadow:2px 2px 0 var(--white), 4px 4px 0 rgba(166,140,240,0.35);
+  margin:6px 0 4px;
+}
+.subtitle{
+  font-size:1.05rem;
+  color:var(--ink-soft);
+  margin-bottom:28px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  font-family:'Baloo 2', sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  border:none;
+  cursor:pointer;
+  padding:14px 30px;
+  border-radius:999px;
+  background:linear-gradient(135deg, var(--pink-deep), var(--lav-deep));
+  color:var(--white);
+  box-shadow:0 8px 0 rgba(166,110,180,0.35), var(--shadow);
+  transition:transform .15s ease, box-shadow .15s ease;
+  position:relative;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn:active{ transform:translateY(4px); box-shadow:0 3px 0 rgba(166,110,180,0.35); }
+.btn.secondary{
+  background:var(--white);
+  color:var(--lav-deep);
+  box-shadow:0 8px 0 #e7defc, var(--shadow);
+}
+.btn-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:22px 0; }
+
+/* pop confetti on click container */
+.confetti-piece{
+  position:fixed; top:0; left:0; width:9px; height:14px; z-index:999; pointer-events:none;
+  border-radius:2px;
+}
+
+/* ---------- Cards / sections ---------- */
+.card{
+  background:var(--white);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:var(--shadow);
+  margin:24px 0;
+  border:2px dashed var(--pink);
+}
+
+/* ---------- Countdown ---------- */
+.countdown{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:30px 0;
+}
+.countdown .box{
+  background:var(--white);
+  border-radius:20px;
+  min-width:86px;
+  padding:16px 10px;
+  box-shadow:var(--shadow);
+  border-bottom:6px solid var(--pink-deep);
+}
+.countdown .num{
+  font-family:'Baloo 2', sans-serif;
+  font-size:2.1rem;
+  font-weight:800;
+  color:var(--lav-deep);
+  display:block;
+  line-height:1;
+}
+.countdown .lbl{
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--ink-soft);
+}
+
+/* ---------- Hero photo blob ---------- */
+.hero-photo-wrap{
+  display:flex; justify-content:center; margin:14px 0 30px;
+}
+.hero-photo{
+  width:min(72vw, 320px);
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:44% 56% 58% 42% / 48% 44% 56% 52%;
+  box-shadow:var(--shadow);
+  border:6px solid var(--white);
+  outline:3px solid var(--pink);
+  animation:blobfloat 6s ease-in-out infinite;
+}
+@keyframes blobfloat{
+  0%,100%{ border-radius:44% 56% 58% 42% / 48% 44% 56% 52%; transform:translateY(0) rotate(0deg); }
+  50%{ border-radius:58% 42% 44% 56% / 52% 56% 44% 48%; transform:translateY(-10px) rotate(2deg); }
+}
+
+/* ---------- Polaroids ---------- */
+.polaroid-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:26px;
+  justify-content:center;
+  margin:30px 0;
+}
+.polaroid{
+  background:var(--white);
+  padding:14px 14px 46px;
+  box-shadow:0 14px 26px rgba(139,111,209,0.25);
+  width:190px;
+  border-radius:4px;
+  position:relative;
+  transition:transform .25s ease, box-shadow .25s ease;
+  cursor:pointer;
+}
+.polaroid:nth-child(1){ transform:rotate(-7deg); }
+.polaroid:nth-child(2){ transform:rotate(5deg); }
+.polaroid:nth-child(3){ transform:rotate(-3deg); }
+.polaroid:nth-child(4){ transform:rotate(6deg); }
+.polaroid:hover{ transform:scale(1.08) rotate(0deg) translateY(-6px); box-shadow:0 20px 34px rgba(139,111,209,0.35); z-index:5; }
+.polaroid img{ width:100%; height:190px; object-fit:cover; display:block; }
+.polaroid .cap{
+  font-family:'Baloo 2', sans-serif;
+  text-align:center;
+  font-size:0.85rem;
+  color:var(--ink);
+  margin-top:10px;
+  transform:rotate(-1deg);
+}
+.polaroid .tape{
+  position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(-3deg);
+  width:70px; height:22px;
+  background:rgba(255,226,154,0.75);
+  border:1px solid rgba(246,196,83,0.5);
+}
+
+/* ---------- Message bubble ---------- */
+.message-bubble{
+  background:var(--white);
+  border-radius:26px;
+  padding:32px;
+  box-shadow:var(--shadow);
+  border:3px solid var(--pink);
+  font-family:'Baloo 2', sans-serif;
+  font-size:clamp(1.1rem, 2.6vw, 1.5rem);
+  color:var(--ink);
+  line-height:1.6;
+  position:relative;
+  margin:20px 0 34px;
+}
+.message-bubble::after{
+  content:'';
+  position:absolute;
+  bottom:-18px; left:60px;
+  width:0; height:0;
+  border-left:16px solid transparent;
+  border-right:16px solid transparent;
+  border-top:20px solid var(--white);
+  filter:drop-shadow(0 4px 2px rgba(139,111,209,0.12));
+}
+.typewriter{ overflow:hidden; white-space:pre-wrap; }
+
+/* ---------- Then vs now ---------- */
+.split{
+  display:flex; gap:22px; flex-wrap:wrap; justify-content:center; margin:26px 0;
+}
+.split .panel{
+  background:var(--white);
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  padding:20px;
+  width:min(100%, 320px);
+  text-align:center;
+}
+.split .panel img{
+  width:100%; height:340px; object-fit:cover; border-radius:18px; margin-bottom:12px;
+  border:4px solid var(--bg-soft);
+}
+.year-tag{
+  display:inline-block;
+  font-family:'Baloo 2', sans-serif;
+  font-weight:800;
+  font-size:1.6rem;
+  color:var(--white);
+  background:linear-gradient(135deg,var(--pink-deep),var(--lav-deep));
+  padding:6px 22px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+
+/* ---------- Floating decor ---------- */
+.floaty{
+  position:fixed;
+  pointer-events:none;
+  z-index:1;
+  opacity:0.7;
+  animation:drift linear infinite;
+}
+@keyframes drift{
+  0%{ transform:translateY(110vh) translateX(0) rotate(0deg); }
+  100%{ transform:translateY(-10vh) translateX(30px) rotate(360deg); }
+}
+
+/* footer */
+.foot{
+  text-align:center;
+  font-family:'Baloo 2', sans-serif;
+  color:var(--ink-soft);
+  font-size:0.85rem;
+  padding:30px 0 10px;
+}
+
+@media (max-width:520px){
+  .polaroid{ width:150px; }
+  .polaroid img{ height:150px; }
+}
